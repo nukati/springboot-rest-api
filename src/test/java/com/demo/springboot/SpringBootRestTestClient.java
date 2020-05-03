@@ -12,7 +12,6 @@ public class SpringBootRestTestClient {
  
     public static final String REST_SERVICE_URI = "https://demo-api-swap.herokuapp.com/SpringBootRestApi/api";
     
-    @Test
     private static void swap() {
         System.out.println("Testing swap API----------");
         RestTemplate restTemplate = new RestTemplate();
@@ -26,7 +25,7 @@ public class SpringBootRestTestClient {
         //assertEquals("25/01/2555", format.parseSimpleThaiFormat(calendar.getTime()));
     }
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
     	swap();
-    }
+    }*/
 }
