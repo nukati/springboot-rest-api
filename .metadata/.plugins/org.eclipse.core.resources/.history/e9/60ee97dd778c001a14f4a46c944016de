@@ -1,0 +1,26 @@
+package com.demo.api.model;
+	
+public class SwapRequest {
+	private long id;
+	private String funnyStr;
+	public SwapRequest() {
+	}
+	public SwapRequest(long id,String funnyStr) {
+		super();
+		this.id = id;
+		this.funnyStr = funnyStr;
+	}
+	public String getFunnyStr() {
+		return funnyStr;
+	}
+	public void setFunnyStr(String funnyStr) {
+		this.funnyStr = funnyStr;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+}

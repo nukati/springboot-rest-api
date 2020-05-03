@@ -1,0 +1,119 @@
+package com.demo.api.controller;
+
+import java.util.Base64;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.api.model.SwapRequest;
+import com.demo.api.model.SwapResponse;
+import com.demo.api.service.APISwapService;
+import com.demo.api.util.CustomErrorType;
+
+@RestController
+@RequestMapping("/api")
+public class APISwapController {
+
+	public static final Logger logger = LoggerFactory.getLogger(APISwapController.class);
+
+	@Autowired
+	APISwapService apiswapService;
+
+	@PostMapping("/swap")
+	public Object swap(@RequestBody SwapRequest param) {
+		System.out.println("FunnyStr : "+param.getFunnyStr());
+		String pattern = "[a-zA-Z]/s";
+		
+		if(param ==null) {
+			return new ResponseEntity(
+					new CustomErrorType("Unable to swap. FunnyStr is null "),HttpStatus.BAD_REQUEST);
+		}
+		
+		if(param!=null) {
+			if(param.getFunnyStr().isEmpty()) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. FunnyStr is empty "),HttpStatus.BAD_REQUEST);
+			}
+			
+			if(param.getFunnyStr().equals(" ")) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. FunnyStr is space only "),HttpStatus.BAD_REQUEST);
+			}
+			
+			if(param.getFunnyStr().length()>2) {
+				return new ResponseEntity(
+						new CustomErrorType("Input byte[] should at least have 2 bytes for base64 bytes"),HttpStatus.BAD_REQUEST);
+			}
+			
+			byte[] decodedBytes = Base64.getDecoder().decode(param.getFunnyStr());
+			String decodedString = new String(decodedBytes);
+			
+			if(!decodedString.matches(pattern)) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. API will only accept English Capital Letter"),HttpStatus.BAD_REQUEST);
+			}
+		}
+		
+
+		
+		SwapResponse res = new SwapResponse();
+		res = apiswapService.swapEnglishCapital(param);
+		logger.info("Encoding : ", res.getEncode());
+		logger.info("Swap : ", res.getSwap());
+		return ResponseEntity.ok().body(res);
+	}
+	
+	@RequestMapping(value = "/swap/{funnyStr}", method = RequestMethod.GET)
+	public Object swap(@PathVariable("funnyStr") String funnyStr) {
+		System.out.println("FunnyStr {}: "+funnyStr);
+		String pattern = "[a-zA-Z]/s";
+		
+		if(funnyStr ==null) {
+			return new ResponseEntity(
+					new CustomErrorType("Unable to swap. FunnyStr is null "),HttpStatus.BAD_REQUEST);
+		}
+		
+		if(funnyStr!=null) {
+			if(param.getFunnyStr().isEmpty()) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. FunnyStr is empty "),HttpStatus.BAD_REQUEST);
+			}
+			
+			if(funnyStr.equals(" ")) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. FunnyStr is space only "),HttpStatus.BAD_REQUEST);
+			}
+			
+			if(funnyStrlength()>2) {
+				return new ResponseEntity(
+						new CustomErrorType("Input byte[] should at least have 2 bytes for base64 bytes"),HttpStatus.BAD_REQUEST);
+			}
+			
+			byte[] decodedBytes = Base64.getDecoder().decode(funnyStr);
+			String decodedString = new String(decodedBytes);
+			
+			if(!decodedString.matches(pattern)) {
+				return new ResponseEntity(
+						new CustomErrorType("Unable to swap. API will only accept English Capital Letter"),HttpStatus.BAD_REQUEST);
+			}
+		}
+		
+
+		
+		SwapResponse res = new SwapResponse();
+		res = apiswapService.swapEnglishCapital(param);
+		logger.info("Encoding : ", res.getEncode());
+		logger.info("Swap : ", res.getSwap());
+		return ResponseEntity.ok().body(res);
+	}
+
+}

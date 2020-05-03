@@ -1,0 +1,9 @@
+package com.demo.api.service;
+
+
+import com.demo.api.model.SwapResponse;
+
+public interface APISwapService {
+
+	SwapResponse swapEnglishCapital(SwapResponse param);
+}

@@ -1,0 +1,77 @@
+package com.demo.springboot;
+
+public class TestMain {
+
+	public static boolean isAlpha(String str) {
+
+		if (str == null) {
+			return false;
+		}
+
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			if (!((ch >= 'A' && ch <= 'Z') || ch == ' ')) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static String convertAlpha(String str) {
+		String convert = "";
+		if (str == null) {
+			return str;
+		}
+		int j = 0;
+		int k = 1, cntspace = 0;
+		String[] splitStr = str.split(" ");
+		String conStr = "";
+
+		if (splitStr != null) {
+			System.out.println("splitStr.length : " + splitStr.length);
+			for (String string : splitStr) {
+				if (string.equals("")) {
+					cntspace = cntspace + 1;
+				} else {
+					if (cntspace != 0) {
+						conStr = conStr+cntspace+string;
+						cntspace=0;
+					}
+				}
+			}
+
+			j = splitStr.length - 1;
+		}
+		System.out.println("Concat String: " + conStr);
+
+		for (int i = str.length() - 1; i > -1; i--) {
+			char ch = str.charAt(i);
+			if (ch == ' ' && k < j) {
+				convert = convert + convert.valueOf(k++);
+			} else {
+				convert = convert + convert.valueOf(ch);
+			}
+		}
+		return convert.toLowerCase();
+	}
+
+	public static void main(String[] args) {
+		String s = "A HEN  HAS  MANY   CHICKS";
+		System.out.println("String: " + s);
+		System.out.println("IsAlpha: " + isAlpha(s));
+		System.out.println("ConvertAlpha: " + convertAlpha(s));
+
+		String word = "S N PRASAD RAO";
+		String data[];
+		int k = 0;
+		data = word.split("");
+		for (int i = 0; i < data.length; i++) {
+			if (data[i].equals(" ")) {
+				k++;
+			}
+
+		}
+		System.out.println(k);
+	}
+
+}

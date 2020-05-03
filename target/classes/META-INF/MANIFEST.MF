@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: SpringBoot Rest API
+Implementation-Version: 1.0.1
+Built-By: Nukati
+Implementation-Vendor-Id: com.demo.api
+Build-Jdk: 1.8.0_211
+Implementation-URL: http://projects.spring.io/spring-boot/SpringBootRe
+ stApi/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

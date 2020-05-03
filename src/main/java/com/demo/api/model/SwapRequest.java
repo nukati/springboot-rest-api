@@ -1,0 +1,22 @@
+package com.demo.api.model;
+
+import java.io.Serializable;
+
+public class SwapRequest implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private String funnyStr;
+	public SwapRequest(String funnyStr) {
+		super();
+		this.funnyStr = funnyStr;
+	}
+	public String getFunnyStr() {
+		return funnyStr;
+	}
+	public void setFunnyStr(String funnyStr) {
+		this.funnyStr = funnyStr;
+	}
+	public SwapRequest() {
+		this.funnyStr = funnyStr;
+	}
+	
+}

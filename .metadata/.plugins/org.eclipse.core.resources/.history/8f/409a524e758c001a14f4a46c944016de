@@ -1,0 +1,20 @@
+package com.demo.api.model;
+	
+public class SwapRequest {
+
+	private String funnyStr;
+	
+	public SwapRequest(String funnyStr) {
+		super();
+		this.funnyStr = funnyStr;
+	}
+	public String getFunnyStr() {
+		return funnyStr;
+	}
+
+
+	public void setFunnyStr(String funnyStr) {
+		this.funnyStr = funnyStr;
+	}
+	
+}

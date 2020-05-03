@@ -1,0 +1,18 @@
+package com.demo.api.service;
+
+import org.springframework.stereotype.Service;
+
+import com.demo.api.model.SwapResponse;
+
+
+
+@Service("apiswapService")
+public class APISwapServiceImpl implements APISwapService{
+
+	@Override
+	public SwapResponse swapEnglishCapital(SwapRequest param) {
+		
+		return null;
+	}
+
+}

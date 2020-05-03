@@ -1,0 +1,21 @@
+package com.demo.api.model;
+
+import java.io.Serializable;
+
+public class SwapBean implements Serializable{
+	private String decode;
+	private String endcode;
+	public String getDecode() {
+		return decode;
+	}
+	public void setDecode(String decode) {
+		this.decode = decode;
+	}
+	public String getEndcode() {
+		return endcode;
+	}
+	public void setEndcode(String endcode) {
+		this.endcode = endcode;
+	}
+	
+}

@@ -1,0 +1,29 @@
+package com.demo.api.service;
+
+import java.util.Base64;
+
+import org.springframework.stereotype.Service;
+
+import com.demo.api.model.SwapRequest;
+import com.demo.api.model.SwapResponse;
+import com.demo.api.util.StringRegExp;
+
+
+
+@Service("apiswapService")
+public class APISwapServiceImpl implements APISwapService{
+
+	@Override
+	public SwapResponse swapEnglishCapital(SwapRequest param) {
+		SwapResponse res = new SwapResponse();
+		byte[] decodedBytes = Base64.getDecoder().decode(param.getFunnyStr());
+		String decodedString = new String(decodedBytes);
+		
+		res.setDecode(param.getFunnyStr());
+		res.setEncode(decodedString);
+		res.setSwap(StringRegExp.convertAlpha(decodedString));
+		
+		return res;
+	}
+
+}
