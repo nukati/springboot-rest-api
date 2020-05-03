@@ -1,10 +1,12 @@
 package com.demo.api.util;
 
+import org.junit.platform.commons.util.StringUtils;
+
 public class StringRegExp {
 
 	public static boolean isAlpha(String str) {
 
-		if (str == null) {
+		if (str == null || str.isEmpty() || StringUtils.isBlank(str)) {
 			return false;
 		}
 
@@ -21,7 +23,7 @@ public class StringRegExp {
 		String cntSpace = "";
 		String convert = "";
 
-		if (str == null) {
+		if (str == null || str.isEmpty() || StringUtils.isBlank(str)) {
 			return str;
 		}
 		int j = 0;
@@ -50,13 +52,21 @@ public class StringRegExp {
 	}
 
 	/*public static void main(String[] args) {
-		String s = "A HEN  HAS  MANY  	CHICKS";
+		String s = "The World";
 		System.out.println("String: " + s);
 		System.out.println("IsAlpha: " + isAlpha(s));
-		if (isAlpha(s)) {
-			System.out.println("ConvertAlpha: " + convertAlpha(s));
-		} else {
-			System.out.println("Cann't convert.");
-		}
+		//if (isAlpha(s)) {
+			System.out.println("ConvertAlpha: " + convertAlpha("The World"));
+			System.out.println("ConvertAlpha: " + convertAlpha(" the world"));
+			System.out.println("ConvertAlpha: " + convertAlpha("THE WORLD"));
+			System.out.println("ConvertAlpha: " + convertAlpha(" THE WORLD"));
+			System.out.println("ConvertAlpha: " + convertAlpha("THE1 WORLD1"));
+			System.out.println("ConvertAlpha: " + convertAlpha("The1 World 1"));
+			System.out.println("ConvertAlpha: " + convertAlpha("A HEN  HAS  MANY   CHICKS"));
+			System.out.println("ConvertAlpha: " + convertAlpha("THE WORLD."));
+			System.out.println("ConvertAlpha: " + convertAlpha("THE WORLD #"));
+		//} else {
+			//System.out.println("Cann't convert.");
+		//}
 	}*/
 }
