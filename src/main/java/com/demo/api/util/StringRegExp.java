@@ -6,7 +6,7 @@ public class StringRegExp {
 
 	public static boolean isAlpha(String str) {
 
-		if (str == null || str.isEmpty() || StringUtils.containsWhitespace(str)) {
+		if (str == null || str.isEmpty()) {
 			return false;
 		}
 
@@ -23,7 +23,7 @@ public class StringRegExp {
 		String cntSpace = "";
 		String convert = "";
 
-		if (str == null || str.isEmpty() || StringUtils.containsWhitespace(str)) {
+		if (str == null || str.isEmpty()) {
 			return str;
 		}
 		int j = 0;
