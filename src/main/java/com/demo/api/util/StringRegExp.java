@@ -1,12 +1,12 @@
 package com.demo.api.util;
 
-import org.junit.platform.commons.util.StringUtils;
+import org.springframework.util.StringUtils;
 
 public class StringRegExp {
 
 	public static boolean isAlpha(String str) {
 
-		if (str == null || str.isEmpty() || StringUtils.isBlank(str)) {
+		if (str == null || str.isEmpty() || StringUtils.containsWhitespace(str)) {
 			return false;
 		}
 
@@ -23,7 +23,7 @@ public class StringRegExp {
 		String cntSpace = "";
 		String convert = "";
 
-		if (str == null || str.isEmpty() || StringUtils.isBlank(str)) {
+		if (str == null || str.isEmpty() || StringUtils.containsWhitespace(str)) {
 			return str;
 		}
 		int j = 0;
