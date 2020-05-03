@@ -1,26 +1,40 @@
 package com.demo.api.model;
-	
-public class SwapResponse {
 
-	private String decode;
-	private String encode;
+import java.io.Serializable;
+
+public class SwapResponse implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String encodeFunnyStr;
+	private String decodeFunnyStr;
+	private String encodeSwap;
 	private String swap;
 	public SwapResponse() {
-		this.decode=decode;
-		this.encode=encode;
+		this.encodeFunnyStr=encodeFunnyStr;
+		this.decodeFunnyStr=decodeFunnyStr;
+		this.encodeSwap=encodeSwap;
 		this.swap=swap;
 	}
-	public String getDecode() {
-		return decode;
+	public String getEncodeFunnyStr() {
+		return encodeFunnyStr;
 	}
-	public void setDecode(String decode) {
-		this.decode = decode;
+	public void setEncodeFunnyStr(String encodeFunnyStr) {
+		this.encodeFunnyStr = encodeFunnyStr;
 	}
-	public String getEncode() {
-		return encode;
+	public String getDecodeFunnyStr() {
+		return decodeFunnyStr;
 	}
-	public void setEncode(String encode) {
-		this.encode = encode;
+	public void setDecodeFunnyStr(String decodeFunnyStr) {
+		this.decodeFunnyStr = decodeFunnyStr;
+	}
+	public String getEncodeSwap() {
+		return encodeSwap;
+	}
+	public void setEncodeSwap(String encodeSwap) {
+		this.encodeSwap = encodeSwap;
 	}
 	public String getSwap() {
 		return swap;
@@ -28,5 +42,13 @@ public class SwapResponse {
 	public void setSwap(String swap) {
 		this.swap = swap;
 	}
+	public SwapResponse(String encodeFunnyStr, String decodeFunnyStr, String encodeSwap, String swap) {
+		super();
+		this.encodeFunnyStr = encodeFunnyStr;
+		this.decodeFunnyStr = decodeFunnyStr;
+		this.encodeSwap = encodeSwap;
+		this.swap = swap;
+	}
+	
 	
 }
